@@ -64,7 +64,7 @@ export class OAuth2ClientPluginWeb extends WebPlugin implements OAuth2ClientPlug
                             // ignore DOMException: Blocked a frame with origin "http://localhost:4200" from accessing a cross-origin frame.
                         }
 
-                        if (href != null) {
+                        if (href != null && href.indexOf(this.webOptions.redirectUrl) >= 0) {
                             let urlParamObj = WebUtils.getUrlParams(href);
                             if (urlParamObj) {
                                 clearInterval(this.intervalId);
